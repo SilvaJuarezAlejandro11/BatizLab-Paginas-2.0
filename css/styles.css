@@ -15,7 +15,7 @@
 
 html {
   box-sizing: border-box;
-  font-size: 62.5%;
+  font-size: 62.5%; /* 10px = 1rem */
 }
 *,
 *::before,
@@ -276,18 +276,19 @@ img {
 .opcion {
   padding: calc(var(--separacion) / 3);
   text-align: center;
-  background-position: center center;
-  background-size: cover;
   background-repeat: no-repeat;
   position: relative;
   border-radius: 1rem;
   transition-property: transform;
   transition-duration: 0.3s;
   height: 20rem;
+  background-size: contain;
+  background-position: center bottom;
 }
 
 .opcion:nth-child(1) {
   background-image: url('../img/hero.png');
+  background-size: cover;
 }
 
 @media (min-width: 768px) {
@@ -298,7 +299,7 @@ img {
 }
 
 .opcion:nth-child(2) {
-  background-image: url('../img/invitado.jfif');
+  background-image: url('../img/invitado.svg');
 }
 
 @media (min-width: 768px) {
@@ -309,7 +310,7 @@ img {
 }
 
 .opcion:nth-child(3) {
-  background-image: url(../img/estudiante.png);
+  background-image: url(../img/estudiante.svg);
 }
 
 @media (min-width: 768px) {
@@ -320,7 +321,7 @@ img {
 }
 
 .opcion:nth-child(4) {
-  background-image: url(../img/profesor.jfif);
+  background-image: url(../img/profesor.svg);
 }
 
 @media (min-width: 768px) {
@@ -419,4 +420,168 @@ img {
   .copyright {
     left: 32%;
   }
+}
+
+/** Filtros **/
+.filtros {
+  display: grid;
+  padding: var(--separacion) 0;
+  grid-template-columns: repeat(2, 1fr);
+  gap: calc(var(--separacion) / 2);
+}
+
+@media (min-width: 768px) {
+  .filtros {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (min-width: 992px) {
+  .filtros {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.filtro {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--separacion) / 3);
+}
+
+.filtro:nth-child(3) {
+  grid-column: 1/3;
+}
+
+@media (min-width: 768px) {
+  .filtro:nth-child(3) {
+    grid-column: 3/4;
+  }
+}
+
+.filtro:nth-child(4) {
+  grid-column: 1/3;
+  height: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .filtro:nth-child(4) {
+    grid-column: 1/4;
+  }
+}
+@media (min-width: 992px) {
+  .filtro:nth-child(4) {
+    grid-column: 4/5;
+    align-self: flex-end;
+  }
+}
+
+.filtro label {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--azulOscuro);
+}
+
+.filtro select,
+input[type='text'] {
+  color: var(--grisOscuro);
+  font-size: 2rem;
+  text-align: center;
+  background-color: var(--grisClaro);
+  border: 1px solid var(--azulOscuro);
+}
+
+/** Proyectos **/
+
+.proyectos {
+  padding: var(--separacion) 0;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: calc(var(--separacion) / 2);
+  color: var(--azulClaro);
+}
+
+@media (min-width: 768px) {
+  .proyectos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .proyectos {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1600px) {
+  .proyectos {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.proyecto::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--fondoOscuro);
+  border-radius: 1rem;
+}
+
+.proyecto {
+  padding: 0 calc(var(--separacion) / 2);
+  border-radius: 1.5rem;
+  min-height: 20rem;
+  background-image: url(../img/estudiante.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  transition-property: background-color transform;
+  transition-duration: 0.3s;
+}
+
+.proyecto h1 {
+  position: relative;
+}
+
+.proyecto h2,
+h3,
+h4,
+h5 {
+  line-height: 1;
+  position: relative;
+}
+
+.proyecto:hover {
+  background-color: var(--azulOscuro);
+  transform: scale(1.1);
+}
+
+.periodo {
+  display: flex;
+  justify-content: center;
+  gap: calc(var(--separacion) / 4);
+}
+
+.mas-sobre a {
+  font-size: 2rem;
+  color: var(--azulClaro);
+  position: relative;
+  padding-bottom: calc(var(--separacion) / 2);
+  transition-property: font-size color;
+  transition-duration: 0.3s;
+}
+
+.mas-sobre a:hover {
+  color: transparent;
+  background: linear-gradient(
+    to right,
+    var(--azulClaro) 0%,
+    var(--azulOscuro) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  font-size: 2.2rem;
 }
