@@ -294,7 +294,7 @@ img {
   background-repeat: no-repeat;
   position: relative;
   border-radius: 1rem;
-  transition-property: transform;
+  transition-property: background-color transform;
   transition-duration: 0.3s;
   height: 20rem;
   background-size: contain;
@@ -369,6 +369,7 @@ img {
 
 .opcion:hover {
   transform: scale(1.1);
+  background-color: var(--azulOscuro);
 }
 
 @media (min-width: 768px) {
