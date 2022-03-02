@@ -698,6 +698,13 @@ h5 {
 .mi-proyecto .proyecto:last-child i {
   position: relative;
   font-size: 10rem;
+  transition-property: transform color;
+  transition-duration: 0.3s;
+}
+
+.mi-proyecto .proyecto:last-child i:hover {
+  transform: scale(1.1);
+  color: var(--azulOscuro);
 }
 
 /** Perfiles **/
