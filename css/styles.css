@@ -876,10 +876,13 @@ h5 {
   font-size: 2rem;
 }
 
+/** Más sobre mi **/
+
 .mas-sobre-mi {
   max-height: 80rem;
   padding: var(--separacion) 0;
   overflow: scroll;
+  overflow-x: hidden;
 }
 
 @media (min-width: 992px) {
@@ -920,8 +923,11 @@ h5 {
   .bio {
     grid-column: 2/3;
     overflow: hidden;
+    overflow-x: hidden;
   }
 }
+
+/** Tabla **/
 
 .tabla {
   width: 100%;
@@ -944,6 +950,71 @@ h5 {
   text-align: center;
   background-color: var(--azulClaro);
   color: var(--azulOscuro);
+}
+
+/** Repositorio **/
+
+.mi-perfil-repo-titulo {
+  color: var(--azulOscuro);
+}
+
+.mi-perfil-repositorios {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: calc(var(--separacion) / 2);
+  height: 55rem;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+.mi-perfil-repositorio::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--fondoOscuro);
+  border-radius: 1rem;
+}
+
+.mi-perfil-repositorio {
+  display: block;
+  text-align: center;
+  padding: calc(var(--separacion) / 2);
+  border-radius: 1.5rem;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url(../img/repositorio.svg);
+  background-position: center;
+  position: relative;
+  transition-property: background-color transform;
+  transition-duration: 0.3s;
+}
+
+.mi-perfil-repositorio:hover {
+  background-color: var(--azulOscuro);
+  transform: scale(0.9);
+}
+
+@media (min-width: 768px) {
+  .repositorio-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.mi-perfil-repositorio:last-of-type {
+  margin-bottom: var(--separacion);
+}
+
+.repositorio-titulo {
+  position: relative;
+}
+
+.repositorio-datos {
+  color: var(--azulClaro);
 }
 
 /** Footer **/
