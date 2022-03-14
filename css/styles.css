@@ -1034,6 +1034,23 @@ h5 {
   padding: var(--separacion) 0;
 }
 
+@media(min-width:768px){
+  .detalles-proyecto {
+    max-height: 140rem;
+    overflow: scroll;
+    overflow-x: hidden;
+  }
+}
+
+@media(min-width:1200px){
+  .detalles-proyecto{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: calc(var(--separacion)/2);
+  }
+}
+
+
 .detalle-proyecto::before {
   content: '';
   position: absolute;
@@ -1059,9 +1076,24 @@ h5 {
   transition-duration: 0.3s;
 }
 
+@media(min-width:1200px){
+  .detalle-proyecto {
+    height: 30rem;
+  }
+  .detalle-proyecto h1 {
+    font-size: 3rem;
+  }
+}
+
 .detalle-proyecto:hover {
   background-color: var(--azulOscuro);
   transform: scale(1.1);
+}
+
+@media(min-width:768px){
+  .detalle-proyecto:hover{
+    transform: scale(0.9);
+  }
 }
 
 /** Descripcion proyecto **/
@@ -1082,6 +1114,7 @@ h5 {
 
 @media (min-width: 768px) {
   .side-bar {
+    max-height: 150rem;
     padding: var(--separacion) 0;
     display: flex !important;
     flex-direction: column;
